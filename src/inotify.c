@@ -84,8 +84,10 @@ void fastd_inotify_handle(void) {
 				type = "IN_CLOSE_WRITE: ";
 			if (event->mask & IN_MODIFY)
 				type = "IN_MODIFY: ";
-			if (event->mask & IN_MOVED_TO) 
+			if (event->mask & IN_MOVED_TO)
 				type = "IN_MOVED_TO: ";
+			if (event->mask & IN_MOVED_FROM)
+				type = "IN_MOVED_FROM: ";
 
 			/* Print the name of the watched directory */
 			const char *dir = NULL;
